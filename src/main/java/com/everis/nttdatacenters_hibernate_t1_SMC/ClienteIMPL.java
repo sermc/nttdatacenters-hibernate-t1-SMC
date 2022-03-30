@@ -13,9 +13,15 @@ public class ClienteIMPL implements ClienteDAO {
 		this.sesion = sesion;
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public Cliente searchByName(String name) {
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Cliente> searchClients() {
 		List<Cliente> res = new ArrayList<Cliente>();
 		
 		// Verificación de sesión abierta.
@@ -25,13 +31,8 @@ public class ClienteIMPL implements ClienteDAO {
 		
 		// Localiza jugadores en función del nombre.
 		res = sesion.createQuery("FROM " + Cliente.class).list();
-		return null;
-	}
-
-	@Override
-	public List<Cliente> searchClients() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return  res;
 	}
 	
 	
